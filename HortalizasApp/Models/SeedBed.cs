@@ -11,8 +11,5 @@ public class SeedBed
     public string Name { get; set; }
     
     [Required]
-    public int Temperature { get; set; }
-    
-    [Required]
-    public DateTime RegisterDate { get; set; }
+    public int SeedsPlanted { get; set; }
 }
