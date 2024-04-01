@@ -4,16 +4,16 @@ using MySqlConnector;
 
 namespace HortalizasApp.Services;
 
-public interface IBedRepository
+public interface ISeedBedRepository
 {
     Task<IEnumerable<SeedBed>> GetBeds(); 
 }
 
-public class BedRepository: IBedRepository
+public class SeedSeedBedRepository: ISeedBedRepository
 {
     private readonly string _connectionString;
     
-    public BedRepository(IConfiguration configuration)
+    public SeedSeedBedRepository(IConfiguration configuration)
     {
         _connectionString = configuration.GetConnectionString("DefaultConnection");
     }
@@ -24,6 +24,6 @@ public class BedRepository: IBedRepository
         await connection.OpenAsync();
 
         return await connection.QueryAsync<SeedBed>(
-            @"SELECT * FROM cama1");
+            @"SELECT * FROM SeedBed");
     }
 }
