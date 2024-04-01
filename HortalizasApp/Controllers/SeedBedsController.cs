@@ -1,23 +1,22 @@
-using HortalizasApp.Models;
 using HortalizasApp.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HortalizasApp.Controllers;
 
 [ApiController]
-public class HortalizasController : Controller
+public class SeedBedsController : Controller
 {
-    private readonly IBedRepository _bedRepository;
+    private readonly ISeedBedRepository _seedBedRepository;
     
-    public HortalizasController(IBedRepository bedRepository)
+    public SeedBedsController(ISeedBedRepository seedBedRepository)
     {
-        _bedRepository = bedRepository;
+        _seedBedRepository = seedBedRepository;
     }
     
     [HttpGet("/hortalizas")]
     public async Task<IActionResult> GetHortalizas()
     {
-        var beds = await _bedRepository.GetBeds();
+        var beds = await _seedBedRepository.GetBeds();
         
         return Ok(beds);
     }
